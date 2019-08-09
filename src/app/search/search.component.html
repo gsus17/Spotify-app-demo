@@ -1,0 +1,15 @@
+<div>
+  <div fxLayout="row">
+    <input fxFlex="30"
+           class="custom-input"
+           #termino
+           type="text"
+           (keyup)="search(termino.value)"
+           placeholder="Buscar artista">
+  </div>
+
+  <div *ngIf="!loading">
+    <app-card [items]="artistas"></app-card>
+  </div>
+
+</div>

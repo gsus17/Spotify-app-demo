@@ -1,0 +1,89 @@
+<div *ngIf="!loading">
+  <div fxLayout="row"
+       fxLayoutAlign="center center">
+    <mat-card class="example-card">
+      <img mat-card-image
+           src="{{artista.images| noimage}}">
+      <mat-card-content>
+        <div fxLayout="column">
+          <p>
+            {{artista.name}}
+          </p>
+          <a [href]="artista.external_urls.spotify"
+             target="_blank">
+            Ir a la pagina del artista.
+          </a>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- <mat-list *ngIf="!loading"
+              fxFlex>
+      <mat-list-item *ngFor="let track of topTracks">
+        <div fxLayout="row">
+          <img class="track-preview"
+               src="{{track.album.images | noimage}}"
+               alt="">
+          <span class="track-name"> {{track.name}}</span>
+
+          <audio fxFlex
+                 src="{{track.preview_url}}"
+                 controls></audio>
+        </div>
+      </mat-list-item>
+    </mat-list> -->
+
+    <table mat-table
+           [dataSource]="topTracks"
+           class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="foto">
+        <th mat-header-cell
+            *matHeaderCellDef> Portada </th>
+        <td mat-cell
+            *matCellDef="let element">
+          <img class="track-preview"
+               src="{{element.album.images | noimage}}"
+               alt=""> </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="album">
+        <th mat-header-cell
+            *matHeaderCellDef> Album </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.album.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="cancion">
+        <th mat-header-cell
+            *matHeaderCellDef> Cancion </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="vista">
+        <th mat-header-cell
+            *matHeaderCellDef> Vista </th>
+        <td mat-cell
+            *matCellDef="let element">
+          <audio fxFlex
+                 src="{{element.preview_url}}"
+                 controls></audio> </td>
+      </ng-container>
+
+      <tr mat-header-row
+          *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>

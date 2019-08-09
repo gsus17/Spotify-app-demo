@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
@@ -61,6 +62,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSortModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatGridListModule,
     LayoutModule
   ],
   exports: [
@@ -93,6 +95,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSortModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatGridListModule,
     LayoutModule
   ]
 })

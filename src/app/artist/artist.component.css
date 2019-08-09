@@ -1,0 +1,16 @@
+.example-card {
+  max-width: 300px;
+  margin: 8px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.track-name{
+  color: white;
+}
+
+.track-preview{
+  max-width: 50px;
+}
